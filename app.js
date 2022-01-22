@@ -49,9 +49,15 @@ document.querySelector(".check").addEventListener("click", function () {
     displayMessage("⛔️ No Alphabet!");
 
     // When player wins
-  } else if (guess === secretAlphabet) {
+  } else if (guess == secretAlphabet) {
     displayMessage("🎉 Correct Alphabet!");
     document.querySelector(".text").textContent = secretAlphabet;
+    document.querySelector("body").style.backgroundColor = "#EEE269";
+
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector(".highscore").textContent = score;
+    }
   }
   // When guess is wrong
   else if (guess !== secretAlphabet) {
@@ -73,6 +79,4 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".score").textContent = score;
   document.querySelector(".text").textContent = "?";
   document.querySelector(".guess").value = "";
-  // document.querySelector(".body").style.backgroundColor = "#222";
-  // document.querySelector(".text").style.width = "15rem";
 });
